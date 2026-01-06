@@ -1,0 +1,20 @@
+.rma-magazine {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+}
+
+.rma-featured img {
+    width: 100%;
+    height: auto;
+}
+
+.rma-item {
+    display: flex;
+    gap: 15px;
+}
+
+.rma-item img {
+    width: 120px;
+    object-fit: cover;
+}

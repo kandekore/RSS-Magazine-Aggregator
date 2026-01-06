@@ -26,35 +26,42 @@ add_shortcode('rss_magazine', function ($atts) {
     ob_start();
     ?>
     <div class="rma-magazine">
+
         <?php foreach ($items as $index => $item): ?>
+
             <article class="<?php echo $index === 0 ? 'rma-featured' : 'rma-item'; ?>">
-                
+
                 <?php if (!empty($item->image_url)): ?>
-                    <img 
-                        src="<?php echo esc_url($item->image_url); ?>" 
+                    <img
+                        src="<?php echo esc_url($item->image_url); ?>"
                         alt="<?php echo esc_attr($item->title); ?>"
                         loading="lazy"
                     />
                 <?php endif; ?>
 
-                <h3><?php echo esc_html($item->title); ?></h3>
+                <div class="rma-content">
+                    <h3><?php echo esc_html($item->title); ?></h3>
 
-                <?php if (!empty($item->excerpt)): ?>
-                    <p><?php echo esc_html($item->excerpt); ?></p>
-                <?php endif; ?>
+                    <?php if (!empty($item->excerpt)): ?>
+                        <p><?php echo esc_html($item->excerpt); ?></p>
+                    <?php endif; ?>
 
-                <small>
-                    <?php echo esc_html($item->source); ?>
-                    · <?php echo esc_html(date('d M Y', strtotime($item->published_at))); ?>
-                </small>
+                    <small>
+                        <?php echo esc_html($item->source); ?>
+                        · <?php echo esc_html(date('d M Y', strtotime($item->published_at))); ?>
+                    </small>
 
-                <p>
-                    <a href="<?php echo esc_url($item->link); ?>" target="_blank" rel="noopener">
-                        Read more
-                    </a>
-                </p>
+                    <p>
+                        <a href="<?php echo esc_url($item->link); ?>" target="_blank" rel="noopener">
+                            Read more
+                        </a>
+                    </p>
+                </div>
+
             </article>
+
         <?php endforeach; ?>
+
     </div>
     <?php
 

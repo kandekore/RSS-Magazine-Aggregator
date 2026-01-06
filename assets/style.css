@@ -1,20 +1,171 @@
+/* =====================================================
+   RSS MAGAZINE – BASE WRAPPER
+   ===================================================== */
+
 .rma-magazine {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+/* =====================================================
+   FEATURED STORY (DESKTOP)
+   ===================================================== */
+
+.rma-featured {
+    display: block;
 }
 
 .rma-featured img {
     width: 100%;
     height: auto;
+    display: block;
+    margin-bottom: 15px;
 }
+
+.rma-featured .rma-content {
+    display: block;
+}
+
+.rma-featured h3 {
+    font-size: 1.6rem;
+    line-height: 1.3;
+    margin: 0 0 10px;
+}
+
+.rma-featured p {
+    font-size: 1rem;
+    margin: 0 0 10px;
+}
+
+.rma-featured small {
+    font-size: 0.85rem;
+    color: #777;
+}
+
+/* =====================================================
+   SECONDARY STORIES – DESKTOP
+   Image LEFT, ALL text stacked RIGHT
+   ===================================================== */
 
 .rma-item {
     display: flex;
-    gap: 15px;
+    gap: 20px;
+    align-items: flex-start;
 }
 
 .rma-item img {
-    width: 120px;
+    width: 230px;
+    height: auto;
+    flex-shrink: 0;
     object-fit: cover;
+    display: block;
+}
+
+/* Content column */
+.rma-content {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.rma-item h3 {
+    font-size: 1.1rem;
+    line-height: 1.35;
+    margin: 0 0 8px;
+}
+
+.rma-item p {
+    margin: 0 0 6px;
+    font-size: 0.95rem;
+}
+
+.rma-item small {
+    font-size: 0.85rem;
+    color: #777;
+}
+
+/* =====================================================
+   TABLET (≤1023px)
+   ===================================================== */
+
+@media (max-width: 1023px) {
+
+    .rma-item img {
+        width: 180px;
+    }
+
+    .rma-featured h3 {
+        font-size: 1.4rem;
+    }
+}
+
+/* =====================================================
+   MOBILE (≤767px) – CARD STYLE
+   ===================================================== */
+
+@media (max-width: 767px) {
+
+    .rma-magazine {
+        gap: 20px;
+    }
+
+    .rma-featured,
+    .rma-item {
+        display: block;
+        border: 1px solid #e5e5e5;
+        border-radius: 8px;
+        overflow: hidden;
+        background: #ffffff;
+    }
+
+    .rma-featured img,
+    .rma-item img {
+        width: 100%;
+        height: auto;
+        margin: 0;
+    }
+
+    .rma-content {
+        padding: 12px;
+    }
+
+    .rma-featured h3,
+    .rma-item h3 {
+        font-size: 1.1rem;
+        margin: 0 0 8px;
+    }
+
+    .rma-featured p,
+    .rma-item p {
+        font-size: 0.95rem;
+        margin: 0 0 10px;
+    }
+
+    .rma-featured small,
+    .rma-item small {
+        font-size: 0.8rem;
+        color: #777;
+    }
+}
+
+/* =====================================================
+   OPTIONAL POLISH
+   ===================================================== */
+
+/* Hover feedback (desktop only) */
+@media (hover: hover) {
+    .rma-item:hover,
+    .rma-featured:hover {
+        background: #fafafa;
+    }
+}
+
+/* Clamp long titles */
+.rma-item h3,
+.rma-featured h3 {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
 }

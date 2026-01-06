@@ -2,7 +2,7 @@
 /**
  * Plugin Name: RSS Magazine Aggregator
  * Description: Aggregates RSS feeds, filters by keywords, and displays magazine-style layouts.
- * Version: 1.0.0
+ * Version: 1.0.1
  * Author: Darren Kandekore
  */
 

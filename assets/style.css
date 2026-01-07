@@ -169,3 +169,139 @@
     -webkit-box-orient: vertical;
     overflow: hidden;
 }
+/* Sidebar / Footer Feed List */
+
+.rma-feed-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.rma-feed-list li {
+    margin-bottom: 12px;
+}
+
+.rma-feed-list a {
+    display: block;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.rma-feed-meta {
+    font-size: 0.8rem;
+    color: #777;
+}
+/* =====================================================
+   FEATURED ARTICLE
+   ===================================================== */
+
+article.rma-featured {
+    position: relative;
+    border-radius: 12px;
+    overflow: hidden;
+    border: 2px solid #bf882d;
+    box-shadow: 0 6px 22px rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s ease;
+}
+
+/* =====================================================
+   STANDARD ARTICLE – GRID LAYOUT (KEY FIX)
+   ===================================================== */
+
+.rma-item {
+    display: grid;
+    grid-template-columns: 230px 1fr; /* image | content */
+    align-items: stretch;
+    position: relative;
+    border-radius: 12px;
+    overflow: hidden;
+    border: 2px solid #bf882d;
+    box-shadow: 0 6px 22px rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s ease;
+	    padding-right: 15px;
+
+}
+
+/* =====================================================
+   IMAGE COLUMN
+   ===================================================== */
+
+.rma-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* =====================================================
+   CONTENT COLUMN – TWO-ROW GRID
+   Content grows, meta sticks to bottom
+   ===================================================== */
+
+.rma-content {
+    display: grid;
+    grid-template-rows: 1fr auto; /* MAIN CONTENT | META */
+    width: 100%;
+    padding: 10px 15px 12px 15px;
+	margin-right: 20px;
+}
+
+/* =====================================================
+   META ROW – ALWAYS BOTTOM
+   ===================================================== */
+
+.meta {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* LEFT / RIGHT */
+    width: 100%;
+    padding-top: 10px;
+}
+
+/* Source + date (left) */
+.meta small {
+    font-size: 0.85rem;
+    color: #777;
+    white-space: nowrap;
+}
+
+/* Read more (right) */
+p.read {
+    margin: 0;
+    font-weight: 600;
+}
+
+p.read a {
+    text-decoration: none;
+    font-weight: 600;
+    padding: 6px 10px;
+    display: inline-block;
+}
+p.read {
+    margin-right: 20px;
+}
+
+/* =====================================================
+   MOBILE FALLBACK
+   ===================================================== */
+
+@media (max-width: 767px) {
+
+    .rma-item {
+        display: block;
+    }
+
+    .rma-item img {
+        width: 100%;
+        height: auto;
+    }
+
+    .rma-content {
+        display: block;
+        padding: 12px;
+    }
+
+    .meta {
+        margin-top: 12px;
+    }
+}

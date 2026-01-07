@@ -2,7 +2,7 @@
 /**
  * Plugin Name: RSS Magazine Aggregator
  * Description: Aggregates RSS feeds, filters by keywords, and displays magazine-style layouts.
- * Version: 1.0.2
+ * Version: 2.0.0
  * Author: Darren Kandekore
  */
 
@@ -63,4 +63,9 @@ require_once RMA_PATH . 'shortcode-magazine.php';
 
 add_action('wp_enqueue_scripts', function () {
     wp_enqueue_style('rma-style', RMA_URL . 'assets/style.css');
+});
+require_once RMA_PATH . 'widget-feed-list.php';
+
+add_action('widgets_init', function () {
+    register_widget('RMA_Feed_List_Widget');
 });

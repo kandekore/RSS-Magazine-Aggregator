@@ -31,13 +31,18 @@ add_shortcode('rss_magazine', function ($atts) {
 
             <article class="<?php echo $index === 0 ? 'rma-featured' : 'rma-item'; ?>">
 
-                <?php if (!empty($item->image_url)): ?>
-                    <img
-                        src="<?php echo esc_url($item->image_url); ?>"
-                        alt="<?php echo esc_attr($item->title); ?>"
-                        loading="lazy"
-                    />
-                <?php endif; ?>
+                <?php
+$image = !empty($item->image_url)
+    ? esc_url($item->image_url)
+    : esc_url( plugin_dir_url(__FILE__) . 'assets/fallback.png' );
+?>
+
+<img
+    src="<?php echo $image; ?>"
+    alt="<?php echo esc_attr($item->title); ?>"
+    loading="lazy"
+/>
+
 
                 <div class="rma-content">
                     <h3><?php echo esc_html($item->title); ?></h3>
@@ -46,16 +51,18 @@ add_shortcode('rss_magazine', function ($atts) {
                         <p><?php echo esc_html($item->excerpt); ?></p>
                     <?php endif; ?>
 
+                <div class="meta">
                     <small>
                         <?php echo esc_html($item->source); ?>
                         · <?php echo esc_html(date('d M Y', strtotime($item->published_at))); ?>
                     </small>
 
-                    <p>
+                    <p class="read">
                         <a href="<?php echo esc_url($item->link); ?>" target="_blank" rel="noopener">
                             Read more
                         </a>
                     </p>
+					</div>
                 </div>
 
             </article>
